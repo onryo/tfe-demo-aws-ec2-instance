@@ -1,19 +1,40 @@
 variable "aws_region" {
   description = "AWS region"
-  default = "us-west-1"
+  default     = "us-west-1"
 }
 
 variable "ami_id" {
-  description = "ID of the AMI to provision. Default is Ubuntu 14.04 Base Image"
-  default = "ami-2e1ef954"
+  description = "ID of the AMI to provision. Default is Ubuntu 18.04 Base Image"
+  default     = "ami-040dfc3ebf1bfc4f6"
 }
 
 variable "instance_type" {
   description = "type of EC2 instance to provision."
-  default = "t2.micro"
+  default     = "t2.micro"
+}
+
+variable "key_name" {
+  description = "SSH key to add to instance"
+  default     = "tfe-demo"
+}
+
+variable "allowed_cidrs" {
+  type        = "list"
+  description = "list of CIDR blocks allowed to SSH to instance"
+  default     = []
 }
 
 variable "name" {
   description = "name to pass to Name tag"
-  default = "Provisioned by Terraform"
+  default     = "Provisioned by Terraform"
+}
+
+variable "owner" {
+  description = "owner to tag instance ownership"
+  default     = "tfe-demo"
+}
+
+variable "ttl" {
+  description = "instance's time-to-live before reaper deletes it"
+  default     = "8"
 }
