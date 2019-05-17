@@ -9,6 +9,7 @@ provider "aws" {
 resource "aws_instance" "ubuntu" {
   ami                    = "${var.ami_id}"
   instance_type          = "${var.instance_type}"
+  availability_zone      = "${var.aws_region}b"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
 
