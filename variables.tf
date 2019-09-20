@@ -19,7 +19,7 @@ variable "key_name" {
 }
 
 variable "allowed_cidrs" {
-  type        = "list"
+  type        = list(string)
   description = "list of CIDR blocks allowed to SSH to instance"
   default     = []
 }
@@ -38,3 +38,4 @@ variable "ttl" {
   description = "instance's time-to-live before reaper deletes it"
   default     = "8"
 }
+

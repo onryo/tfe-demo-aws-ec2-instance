@@ -3,20 +3,20 @@ terraform {
 }
 
 provider "aws" {
-  region = "${var.aws_region}"
+  region = var.aws_region
 }
 
 resource "aws_instance" "ubuntu" {
-  ami                    = "${var.ami_id}"
-  instance_type          = "${var.instance_type}"
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
   availability_zone      = "${var.aws_region}b"
-  key_name               = "${var.key_name}"
-  vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
+  key_name               = var.key_name
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
-  tags {
+  tags = {
     Name  = "${var.name}_ubuntu"
-    owner = "${var.owner}"
-    TTL   = "${var.ttl}"
+    owner = var.owner
+    TTL   = var.ttl
   }
 }
 
@@ -28,12 +28,13 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = "${var.allowed_cidrs}"
+    cidr_blocks = var.allowed_cidrs
   }
 
-  tags {
+  tags = {
     Name  = "${var.name}_allow_ssh"
-    owner = "${var.owner}"
-    TTL   = "${var.ttl}"
+    owner = var.owner
+    TTL   = var.ttl
   }
 }
+
