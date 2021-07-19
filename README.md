@@ -6,4 +6,4 @@ By default, this configuration provisions a Ubuntu 14.04 Base Image AMI (with ID
 
 Note that you need to set environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
 
-## Dev Branch!
+## Dev Branch Revisited!
