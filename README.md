@@ -1,4 +1,4 @@
-# Provision an EC2 instance in AWS
+# Provision an EC2 instance in AWS - TEST
 This Terraform configuration provisions an EC2 instance in AWS.
 
 ## Details
